@@ -1,6 +1,6 @@
-# CompKit
+# Barbero
 
-**CompKit** is a lightweight JavaScript utility library providing tools for Boolean evaluations, comparisons, and logical utilities. Simplify your true/false logic with this modern, easy-to-use toolkit.
+**Barbero** is a lightweight JavaScript utility library providing tools for Boolean evaluations, comparisons, and logical utilities. Simplify your true/false logic with this modern, easy-to-use toolkit.
 
 ---
 
@@ -15,16 +15,16 @@
 
 ## Installation
 
-Install CompKit via NPM:
+Install Barbero via NPM:
 
 ```bash
-npm install compkit
+npm install barbero
 ```
 
 Or using Yarn:
 
 ```bash
-yarn add compkit
+yarn add barbero
 ```
 
 ---
@@ -36,7 +36,7 @@ Import and use individual functions or the entire library:
 ### Example 1: Truthy/Falsey Checks
 
 ```javascript
-import { isTruthy, isFalsey } from 'compkit';
+import { isTruthy, isFalsey } from 'barbero';
 
 console.log(isTruthy(1)); // true
 console.log(isFalsey(0)); // true
@@ -45,7 +45,7 @@ console.log(isFalsey(0)); // true
 ### Example 2: Null/Undefined/Empty Checks
 
 ```javascript
-import { isNullOrUndefined, isEmptyArray } from 'compkit';
+import { isNullOrUndefined, isEmptyArray } from 'barbero';
 
 console.log(isNullOrUndefined(null)); // true
 console.log(isEmptyArray([])); // true
@@ -55,7 +55,7 @@ console.log(isEmptyArray([1, 2])); // false
 ### Example 3: Comparisons
 
 ```javascript
-import { isEqual, isStrictEqual } from 'compkit';
+import { isEqual, isStrictEqual } from 'barbero';
 
 console.log(isEqual({ a: 1 }, { a: 1 })); // true
 console.log(isStrictEqual(1, '1')); // false
@@ -64,7 +64,7 @@ console.log(isStrictEqual(1, '1')); // false
 ### Example 4: Logical Operations
 
 ```javascript
-import { xor, nand } from 'compkit';
+import { xor, nand } from 'barbero';
 
 console.log(xor(true, false)); // true
 console.log(nand(true, true)); // false
@@ -160,13 +160,13 @@ nand(true, false); // true
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request on [GitHub](https://github.com/your-username/compkit).
+Contributions are welcome! Please open an issue or submit a pull request on [GitHub](https://github.com/your-username/barbero).
 
 ---
 
 ## License
 
-CompKit is licensed under the [MIT License](LICENSE).
+Barbero is licensed under the [MIT License](LICENSE).
 
 ---
 
