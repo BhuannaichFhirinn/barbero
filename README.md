@@ -160,7 +160,7 @@ nand(true, false); // true
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request on [GitHub](https://github.com/your-username/barbero).
+Contributions are welcome! Please open an issue or submit a pull request on [GitHub](https://github.com/BhuannaichFhirinn/barbero).
 
 ---
 
