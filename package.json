@@ -1,12 +1,32 @@
 {
     "name": "compkit",
     "version": "1.0.0",
+    "description": "A lightweight utility library for Boolean logic.",
     "main": "dist/index.cjs",
     "module": "dist/index.mjs",
     "type": "module",
     "scripts": {
         "build": "npm run build:cjs && npm run build:mjs",
         "build:cjs": "cp src/index.js dist/index.cjs",
-        "build:mjs": "cp src/index.js dist/index.mjs"
-    }
+        "build:mjs": "cp src/index.js dist/index.mjs",
+        "test": "echo 'No tests yet'"
+    },
+    "keywords": [
+        "boolean",
+        "utility",
+        "truthy",
+        "falsey",
+        "logic",
+        "javascript"
+    ],
+    "author": "Bhuannaich Fhirinn <BhuannaichFhirinn@gmail.com> (https://github.com/BhuannaichFhirinn)",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/BhuannaichFhirinn/compkit.git"
+    },
+    "bugs": {
+        "url": "https://github.com/BhuannaichFhirinn/compkit/issues"
+    },
+    "homepage": "https://github.com/BhuannaichFhirinn/compkit#readme"
 }
