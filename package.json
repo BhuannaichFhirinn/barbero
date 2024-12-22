@@ -1,0 +1,12 @@
+{
+    "name": "compkit",
+    "version": "1.0.0",
+    "main": "dist/index.cjs",
+    "module": "dist/index.mjs",
+    "type": "module",
+    "scripts": {
+        "build": "npm run build:cjs && npm run build:mjs",
+        "build:cjs": "cp src/index.js dist/index.cjs",
+        "build:mjs": "cp src/index.js dist/index.mjs"
+    }
+}
