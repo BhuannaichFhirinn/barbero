@@ -1,5 +1,5 @@
 {
-    "name": "compkit",
+    "name": "barbero",
     "version": "0.1.0-alpha.1",
     "description": "A lightweight utility library for Boolean logic.",
     "main": "dist/index.cjs",
@@ -23,10 +23,10 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/BhuannaichFhirinn/compkit.git"
+        "url": "git+https://github.com/BhuannaichFhirinn/barbero.git"
     },
     "bugs": {
-        "url": "https://github.com/BhuannaichFhirinn/compkit/issues"
+        "url": "https://github.com/BhuannaichFhirinn/barbero/issues"
     },
-    "homepage": "https://github.com/BhuannaichFhirinn/compkit#readme"
+    "homepage": "https://github.com/BhuannaichFhirinn/barbero#readme"
 }
