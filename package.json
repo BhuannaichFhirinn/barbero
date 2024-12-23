@@ -9,7 +9,8 @@
         "build": "npm run build:cjs && npm run build:mjs",
         "build:cjs": "cp src/index.js dist/index.cjs",
         "build:mjs": "cp src/index.js dist/index.mjs",
-        "test": "echo 'No tests yet'"
+        "test": "vitest",
+        "test:watch": "vitest --watch"
     },
     "keywords": [
         "boolean",
@@ -29,5 +30,8 @@
     "bugs": {
         "url": "https://github.com/BhuannaichFhirinn/barbero/issues"
     },
-    "homepage": "https://github.com/BhuannaichFhirinn/barbero#readme"
+    "homepage": "https://github.com/BhuannaichFhirinn/barbero#readme",
+    "devDependencies": {
+        "vitest": "^2.1.8"
+    }
 }

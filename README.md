@@ -1,13 +1,13 @@
 # Barbero
 
-**Barbero** is a lightweight JavaScript utility library providing tools for Boolean evaluations, comparisons, and logical utilities. Simplify your true/false logic with this modern, easy-to-use toolkit.
+**Barbero** is a lightweight JavaScript utility library providing tools for Boolean evaluations, comparisons, logical operations, and predicate utilities. Simplify your true/false logic with this modern, easy-to-use toolkit.
 
 ---
 
 ## Features
 
 - **Lightweight**: Small and efficient, designed to integrate seamlessly with your projects.
-- **Boolean Utilities**: Perform truthy/falsey checks, comparisons, and validations.
+- **Boolean Utilities**: Perform truthy/falsey checks, comparisons, validations, and predicate compositions.
 - **Easy to Use**: Clear and intuitive functions for common tasks.
 - **Tree-shakable**: Import only what you need to minimize bundle size.
 
@@ -68,6 +68,29 @@ import { xor, nand } from 'barbero';
 
 console.log(xor(true, false)); // true
 console.log(nand(true, true)); // false
+```
+
+### Example 5: Predicate Utilities
+
+```javascript
+import { allPass, anyPass, nonePass, composePredicates } from 'barbero';
+
+const isPositive = (x) => x > 0;
+const isEven = (x) => x % 2 === 0;
+
+const isPositiveAndEven = allPass(isPositive, isEven);
+console.log(isPositiveAndEven(4)); // true
+console.log(isPositiveAndEven(-2)); // false
+
+const isPositiveOrEven = anyPass(isPositive, isEven);
+console.log(isPositiveOrEven(-2)); // true
+
+const isNeitherPositiveNorEven = nonePass(isPositive, isEven);
+console.log(isNeitherPositiveNorEven(-3)); // true
+
+const customCheck = composePredicates(isPositive, isEven);
+console.log(customCheck(4)); // true
+console.log(customCheck(3)); // false
 ```
 
 ---
@@ -156,6 +179,46 @@ nand(true, true); // false
 nand(true, false); // true
 ```
 
+### Predicate Utilities
+
+#### `allPass(...predicates)`
+Returns a function that checks if all predicates pass for the given input.
+
+```javascript
+const isPositive = (x) => x > 0;
+const isEven = (x) => x % 2 === 0;
+const isPositiveAndEven = allPass(isPositive, isEven);
+console.log(isPositiveAndEven(4)); // true
+console.log(isPositiveAndEven(-2)); // false
+```
+
+#### `anyPass(...predicates)`
+Returns a function that checks if any predicate passes for the given input.
+
+```javascript
+const isPositiveOrEven = anyPass(isPositive, isEven);
+console.log(isPositiveOrEven(-2)); // true
+console.log(isPositiveOrEven(-3)); // false
+```
+
+#### `nonePass(...predicates)`
+Returns a function that checks if no predicates pass for the given input.
+
+```javascript
+const isNeitherPositiveNorEven = nonePass(isPositive, isEven);
+console.log(isNeitherPositiveNorEven(-3)); // true
+console.log(isNeitherPositiveNorEven(4)); // false
+```
+
+#### `composePredicates(...predicates)`
+Composes multiple predicates into a single predicate function that tests them sequentially.
+
+```javascript
+const customCheck = composePredicates(isPositive, isEven);
+console.log(customCheck(4)); // true
+console.log(customCheck(3)); // false
+```
+
 ---
 
 ## Contributing
@@ -173,3 +236,4 @@ Barbero is licensed under the [MIT License](LICENSE).
 ## Acknowledgements
 
 Inspired by the need for clear and simple Boolean utilities in JavaScript.
+
