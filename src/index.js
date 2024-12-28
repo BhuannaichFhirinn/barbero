@@ -7,7 +7,7 @@ import {
   isNullOrUndefined, 
   isEmptyArray, 
   isEmptyObject 
-} from './utils/validation.js';
+} from './utilities/validation.js';
 import { 
   isEqual, 
   isStrictEqual 
@@ -15,7 +15,7 @@ import {
 import { 
   xor, 
   nand 
-} from './utils/logic.js';
+} from './utilities/logic.js';
 import {
   allPass,
   anyPass,
