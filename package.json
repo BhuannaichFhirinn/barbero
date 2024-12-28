@@ -6,11 +6,10 @@
     "module": "dist/index.mjs",
     "type": "module",
     "scripts": {
-        "build": "npm run build:cjs && npm run build:mjs",
-        "build:cjs": "cp src/index.js dist/index.cjs",
-        "build:mjs": "cp src/index.js dist/index.mjs",
+        "build": "rollup -c",
         "test": "vitest",
-        "test:watch": "vitest --watch"
+        "test:watch": "vitest --watch",
+        "prepublishOnly": "npm run build"
     },
     "keywords": [
         "boolean",
@@ -32,6 +31,16 @@
     },
     "homepage": "https://github.com/BhuannaichFhirinn/barbero#readme",
     "devDependencies": {
+        "@rollup/plugin-commonjs": "^28.0.2",
+        "@rollup/plugin-node-resolve": "^16.0.0",
+        "@rollup/plugin-terser": "^0.4.4",
+        "rollup": "^4.29.1",
         "vitest": "^2.1.8"
-    }
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE",
+        "package.json"
+    ]
 }
