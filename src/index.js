@@ -1,20 +1,36 @@
+/**
+ * @file index.js
+ * @description Main entry point for the Barbero library. Provides named exports for individual utilities
+ * and a default export containing all utilities in a single object.
+ * 
+ * @module Barbero
+ * @see {@link https://github.com/BhuannaichFhirinn/barbero|GitHub Repository}
+ * @see Individual modules for detailed function documentation.
+ */
+
 // Import utilities
-import { 
-  isTruthy, 
-  isFalsey 
+import {
+  isTruthy,
+  isFalsey,
 } from './core/truthy.js';
-import { 
-  isNullOrUndefined, 
-  isEmptyArray, 
-  isEmptyObject 
+import {
+  isNullOrUndefined,
+  isUndefinedNullOrEmpty,
+  isEmptyArray,
+  isEmptyObject,
+  isArray,
+  isObject,
+  isFunction,
+  isDate,
+  isRegExp,
 } from './utilities/validation.js';
-import { 
-  isEqual, 
-  isStrictEqual 
+import {
+  isEqual,
+  isStrictEqual,
 } from './core/compare.js';
-import { 
-  xor, 
-  nand 
+import {
+  xor,
+  nand,
 } from './utilities/logic.js';
 import {
   allPass,
@@ -23,13 +39,19 @@ import {
   composePredicates,
 } from './utilities/predicate.js';
 
-// Export utilities
-export {
+// Default export (combining all utilities)
+const Barbero = {
   isTruthy,
   isFalsey,
   isNullOrUndefined,
+  isUndefinedNullOrEmpty,
   isEmptyArray,
   isEmptyObject,
+  isArray,
+  isObject,
+  isFunction,
+  isDate,
+  isRegExp,
   isEqual,
   isStrictEqual,
   xor,
@@ -40,13 +62,19 @@ export {
   composePredicates,
 };
 
-// Default export (optional for consumers who prefer this style)
-export default {
+// Named exports
+export {
   isTruthy,
   isFalsey,
   isNullOrUndefined,
+  isUndefinedNullOrEmpty,
   isEmptyArray,
   isEmptyObject,
+  isArray,
+  isObject,
+  isFunction,
+  isDate,
+  isRegExp,
   isEqual,
   isStrictEqual,
   xor,
@@ -56,3 +84,6 @@ export default {
   nonePass,
   composePredicates,
 };
+
+// Default export
+export default Barbero;

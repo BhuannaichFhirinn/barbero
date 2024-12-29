@@ -4,6 +4,7 @@
     "description": "A lightweight utility library for Boolean logic.",
     "main": "dist/index.cjs",
     "module": "dist/index.mjs",
+    "browser": "dist/index.umd.js",
     "type": "module",
     "scripts": {
         "build": "rollup -c",

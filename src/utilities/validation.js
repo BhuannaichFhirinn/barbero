@@ -7,6 +7,11 @@
  * - isUndefinedNullOrEmpty: Checks if a value is undefined, null, NaN, or empty.
  * - isEmptyArray: Checks if an array is empty.
  * - isEmptyObject: Checks if an object is empty.
+ * - isArray: Checks if a value is an array.
+ * - isObject: Checks if a value is an object (excluding arrays).
+ * - isFunction: Checks if a value is a function.
+ * - isDate: Checks if a value is a Date object.
+ * - isRegExp: Checks if a value is a regular expression.
  * 
  * Usage:
  * Use these functions for common validation tasks:
@@ -63,3 +68,56 @@ export const isEmptyArray = (array) => Array.isArray(array) && array.length === 
  */
 export const isEmptyObject = (object) =>
   object && typeof object === 'object' && Object.keys(object).length === 0;
+
+/**
+ * Checks if a value is an array.
+ * @param {*} value - The value to check.
+ * @returns {boolean} - True if the value is an array, false otherwise.
+ * @example
+ * isArray([1, 2, 3]); // true
+ * isArray('hello'); // false
+ */
+export const isArray = (value) => Array.isArray(value);
+
+/**
+ * Checks if a value is an object (excluding arrays).
+ * @param {*} value - The value to check.
+ * @returns {boolean} - True if the value is an object, false otherwise.
+ * @example
+ * isObject({ key: 'value' }); // true
+ * isObject([1, 2, 3]); // false
+ */
+export const isObject = (value) =>
+  value !== null && typeof value === 'object' && !Array.isArray(value);
+
+/**
+ * Checks if a value is a function.
+ * @param {*} value - The value to check.
+ * @returns {boolean} - True if the value is a function, false otherwise.
+ * @example
+ * isFunction(function() {}); // true
+ * isFunction(123); // false
+ */
+export const isFunction = (value) => typeof value === 'function';
+
+/**
+ * Checks if a value is a Date object.
+ * @param {*} value - The value to check.
+ * @returns {boolean} - True if the value is a Date object, false otherwise.
+ * @example
+ * isDate(new Date()); // true
+ * isDate('2023-01-01'); // false
+ */
+export const isDate = (value) =>
+  Object.prototype.toString.call(value) === '[object Date]';
+
+/**
+ * Checks if a value is a regular expression.
+ * @param {*} value - The value to check.
+ * @returns {boolean} - True if the value is a regular expression, false otherwise.
+ * @example
+ * isRegExp(/abc/); // true
+ * isRegExp('abc'); // false
+ */
+export const isRegExp = (value) =>
+  Object.prototype.toString.call(value) === '[object RegExp]';

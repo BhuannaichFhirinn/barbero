@@ -8,6 +8,7 @@ export default [
     output: {
       file: 'dist/index.cjs',
       format: 'cjs',
+      exports: 'named',
     },
     plugins: [resolve(), commonjs(), terser()],
   },
@@ -25,6 +26,7 @@ export default [
       file: 'dist/index.umd.js',
       format: 'umd',
       name: 'Barbero',
+      exports: 'named',
     },
     plugins: [resolve(), commonjs(), terser()],
   },
