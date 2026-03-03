@@ -33,3 +33,9 @@ tsconfig.tsbuildinfo
 # Miscellaneous
 *.tmp
 *.temp
+
+# GitHub
+.github/copilot-instructions.md
+
+# Docs
+docs/

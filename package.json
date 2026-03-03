@@ -14,10 +14,13 @@
     },
     "keywords": [
         "boolean",
-        "utility",
+        "compare",
         "truthy",
         "falsey",
+        "utility",
         "logic",
+        "predicate",
+        "validation",
         "barbero",
         "javascript"
     ],
