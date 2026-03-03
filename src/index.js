@@ -38,6 +38,15 @@ import {
   nonePass,
   composePredicates,
 } from './utilities/predicate.js';
+import {
+  isNumber,
+  isString,
+  isBoolean,
+  isSymbol,
+  isBigInt,
+  isPrimitive,
+  isClassInstance,
+} from './utilities/types.js';
 
 // Default export (combining all utilities)
 const Barbero = {
@@ -60,6 +69,13 @@ const Barbero = {
   anyPass,
   nonePass,
   composePredicates,
+  isNumber,
+  isString,
+  isBoolean,
+  isSymbol,
+  isBigInt,
+  isPrimitive,
+  isClassInstance,
 };
 
 // Named exports
@@ -83,6 +99,13 @@ export {
   anyPass,
   nonePass,
   composePredicates,
+  isNumber,
+  isString,
+  isBoolean,
+  isSymbol,
+  isBigInt,
+  isPrimitive,
+  isClassInstance,
 };
 
 // Default export

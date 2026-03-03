@@ -142,6 +142,69 @@ isEmptyObject({}); // true
 isEmptyObject({ a: 1 }); // false
 ```
 
+### Type System Functions
+
+#### `isNumber(value)`
+Returns `true` if the value has type `'number'` (including `NaN`).
+
+```javascript
+isNumber(42);    // true
+isNumber(NaN);   // true
+isNumber('42');  // false
+```
+
+#### `isString(value)`
+Returns `true` for primitive strings. Returns `false` for boxed `String` objects.
+
+```javascript
+isString('hello');          // true
+isString(new String('hi')); // false
+```
+
+#### `isBoolean(value)`
+Returns `true` for primitive booleans. Returns `false` for boxed `Boolean` objects.
+
+```javascript
+isBoolean(true);               // true
+isBoolean(new Boolean(false)); // false
+```
+
+#### `isSymbol(value)`
+Returns `true` for Symbol values.
+
+```javascript
+isSymbol(Symbol());       // true
+isSymbol('symbol');       // false
+```
+
+#### `isBigInt(value)`
+Returns `true` for BigInt values.
+
+```javascript
+isBigInt(9n);        // true
+isBigInt(BigInt(9)); // true
+isBigInt(9);         // false
+```
+
+#### `isPrimitive(value)`
+Returns `true` for all primitive types including `null` and `undefined`.
+
+```javascript
+isPrimitive(1);         // true
+isPrimitive(null);      // true
+isPrimitive(undefined); // true
+isPrimitive({});        // false
+```
+
+#### `isClassInstance(value)`
+Returns `true` for instances of non-`Object` constructors (e.g. `Date`, `Map`, custom classes).
+
+```javascript
+isClassInstance(new Date()); // true
+isClassInstance({});         // false
+isClassInstance([]);         // false
+```
+
 ### Comparison Functions
 
 #### `isEqual(a, b)`
