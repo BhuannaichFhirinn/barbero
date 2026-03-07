@@ -10,8 +10,8 @@ export default [
       format: 'cjs',
       exports: 'named',
     },
-    // Strip comments only — consumers run their own bundler with full tree-shaking context
-    plugins: [resolve(), commonjs(), terser({ compress: false, mangle: false })],
+    // No minification — consumers bundle and minify themselves
+    plugins: [resolve(), commonjs()],
   },
   {
     input: 'src/index.js',
@@ -19,8 +19,8 @@ export default [
       file: 'dist/index.mjs',
       format: 'es',
     },
-    // Strip comments only — consumers run their own bundler with full tree-shaking context
-    plugins: [resolve(), commonjs(), terser({ compress: false, mangle: false })],
+    // No minification — consumers bundle and minify themselves
+    plugins: [resolve(), commonjs()],
   },
   {
     input: 'src/index.js',
