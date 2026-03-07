@@ -67,7 +67,11 @@ export const isEmptyArray = (array) => Array.isArray(array) && array.length === 
  * isEmptyObject({ key: 'value' }); // false
  */
 export const isEmptyObject = (object) =>
-  object && typeof object === 'object' && Object.keys(object).length === 0;
+  object !== null &&
+  object !== undefined &&
+  typeof object === 'object' &&
+  !Array.isArray(object) &&
+  Object.keys(object).length === 0;
 
 /**
  * Checks if a value is an array.

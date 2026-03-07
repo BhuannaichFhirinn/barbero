@@ -10,7 +10,8 @@ export default [
       format: 'cjs',
       exports: 'named',
     },
-    plugins: [resolve(), commonjs(), terser()],
+    // Strip comments only — consumers run their own bundler with full tree-shaking context
+    plugins: [resolve(), commonjs(), terser({ compress: false, mangle: false })],
   },
   {
     input: 'src/index.js',
@@ -18,7 +19,8 @@ export default [
       file: 'dist/index.mjs',
       format: 'es',
     },
-    plugins: [resolve(), commonjs(), terser()],
+    // Strip comments only — consumers run their own bundler with full tree-shaking context
+    plugins: [resolve(), commonjs(), terser({ compress: false, mangle: false })],
   },
   {
     input: 'src/index.js',
@@ -28,6 +30,7 @@ export default [
       name: 'Barbero',
       exports: 'named',
     },
+    // Full minification — UMD targets direct browser <script> use with no bundler
     plugins: [resolve(), commonjs(), terser()],
   },
 ];

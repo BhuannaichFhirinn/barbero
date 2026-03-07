@@ -25,6 +25,12 @@
  * allPass: Returns a function that checks if all predicates pass for the given input.
  * @param {...Function} predicates - The predicates to test.
  * @returns {Function} - A function that takes an input and returns true if all predicates pass.
+ * @example
+ * const isPositive = (x) => x > 0;
+ * const isEven = (x) => x % 2 === 0;
+ * const check = allPass(isPositive, isEven);
+ * check(4);  // true
+ * check(-2); // false
  */
 export const allPass = (...predicates) => (input) => {
   return predicates.every((predicate) => predicate(input));
@@ -34,6 +40,12 @@ export const allPass = (...predicates) => (input) => {
  * anyPass: Returns a function that checks if any predicate passes for the given input.
  * @param {...Function} predicates - The predicates to test.
  * @returns {Function} - A function that takes an input and returns true if any predicate passes.
+ * @example
+ * const isPositive = (x) => x > 0;
+ * const isEven = (x) => x % 2 === 0;
+ * const check = anyPass(isPositive, isEven);
+ * check(-2); // true  — even
+ * check(-3); // false — neither positive nor even
  */
 export const anyPass = (...predicates) => (input) => {
   return predicates.some((predicate) => predicate(input));
@@ -43,6 +55,12 @@ export const anyPass = (...predicates) => (input) => {
  * nonePass: Returns a function that checks if no predicates pass for the given input.
  * @param {...Function} predicates - The predicates to test.
  * @returns {Function} - A function that takes an input and returns true if no predicates pass.
+ * @example
+ * const isPositive = (x) => x > 0;
+ * const isEven = (x) => x % 2 === 0;
+ * const check = nonePass(isPositive, isEven);
+ * check(-3); // true  — neither positive nor even
+ * check(4);  // false — both pass
  */
 export const nonePass = (...predicates) => (input) => {
   return !predicates.some((predicate) => predicate(input));
@@ -52,6 +70,12 @@ export const nonePass = (...predicates) => (input) => {
  * composePredicates: Composes multiple predicates into a single predicate function.
  * @param {...Function} predicates - The predicates to compose.
  * @returns {Function} - A function that takes an input and applies all predicates in sequence.
+ * @example
+ * const isPositive = (x) => x > 0;
+ * const isEven = (x) => x % 2 === 0;
+ * const check = composePredicates(isPositive, isEven);
+ * check(4); // true
+ * check(3); // false
  */
 export const composePredicates = (...predicates) => (input) => {
   return predicates.reduce((result, predicate) => result && predicate(input), true);

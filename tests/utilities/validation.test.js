@@ -40,6 +40,18 @@ describe('isEmptyObject', () => {
   it('returns false for non-empty objects', () => {
     expect(isEmptyObject({ key: 'value' })).toBe(false);
   });
+
+  it('returns false for null', () => {
+    expect(isEmptyObject(null)).toBe(false);
+  });
+
+  it('returns false for undefined', () => {
+    expect(isEmptyObject(undefined)).toBe(false);
+  });
+
+  it('returns false for an empty array', () => {
+    expect(isEmptyObject([])).toBe(false);
+  });
 });
 
 describe('isArray', () => {
