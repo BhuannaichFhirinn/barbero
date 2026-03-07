@@ -126,6 +126,18 @@ isNullOrUndefined(undefined); // true
 isNullOrUndefined(''); // false
 ```
 
+#### `isUndefinedNullOrEmpty(value)`
+Returns `true` if the value is `undefined`, `null`, `NaN`, an empty string (including whitespace-only), an empty array, or an empty plain object.
+
+```javascript
+isUndefinedNullOrEmpty(null);    // true
+isUndefinedNullOrEmpty('');      // true
+isUndefinedNullOrEmpty([]);      // true
+isUndefinedNullOrEmpty({});      // true
+isUndefinedNullOrEmpty(0);       // false
+isUndefinedNullOrEmpty(false);   // false
+```
+
 #### `isEmptyArray(array)`
 Returns `true` if the array is empty.
 
@@ -140,6 +152,47 @@ Returns `true` if the object has no keys.
 ```javascript
 isEmptyObject({}); // true
 isEmptyObject({ a: 1 }); // false
+```
+
+#### `isArray(value)`
+Returns `true` if the value is an array.
+
+```javascript
+isArray([1, 2, 3]); // true
+isArray('hello');   // false
+```
+
+#### `isObject(value)`
+Returns `true` if the value is a non-null, non-array object.
+
+```javascript
+isObject({ key: 'value' }); // true
+isObject([1, 2, 3]);        // false
+isObject(null);             // false
+```
+
+#### `isFunction(value)`
+Returns `true` if the value is a function.
+
+```javascript
+isFunction(() => {});  // true
+isFunction(123);       // false
+```
+
+#### `isDate(value)`
+Returns `true` if the value is a `Date` instance.
+
+```javascript
+isDate(new Date());    // true
+isDate('2026-01-01'); // false
+```
+
+#### `isRegExp(value)`
+Returns `true` if the value is a regular expression.
+
+```javascript
+isRegExp(/abc/);  // true
+isRegExp('abc');  // false
 ```
 
 ### Type System Functions
