@@ -47,6 +47,19 @@ import {
   isPrimitive,
   isClassInstance,
 } from './utilities/types.js';
+import {
+  isInteger,
+  isFloat,
+  isPositive,
+  isNegative,
+  isZero,
+  isEven,
+  isOdd,
+  isInRange,
+  isDivisibleBy,
+  isFiniteNumber,
+  isNaNValue,
+} from './utilities/number.js';
 
 // Default export (combining all utilities)
 const Barbero = {
@@ -76,6 +89,17 @@ const Barbero = {
   isBigInt,
   isPrimitive,
   isClassInstance,
+  isInteger,
+  isFloat,
+  isPositive,
+  isNegative,
+  isZero,
+  isEven,
+  isOdd,
+  isInRange,
+  isDivisibleBy,
+  isFiniteNumber,
+  isNaNValue,
 };
 
 // Named exports
@@ -106,6 +130,17 @@ export {
   isBigInt,
   isPrimitive,
   isClassInstance,
+  isInteger,
+  isFloat,
+  isPositive,
+  isNegative,
+  isZero,
+  isEven,
+  isOdd,
+  isInRange,
+  isDivisibleBy,
+  isFiniteNumber,
+  isNaNValue,
 };
 
 // Default export

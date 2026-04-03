@@ -258,6 +258,107 @@ isClassInstance({});         // false
 isClassInstance([]);         // false
 ```
 
+### Number / Math Functions
+
+#### `isInteger(value)`
+Returns `true` if the value is an integer. Does not coerce — strings and floats return `false`.
+
+```javascript
+isInteger(4);        // true
+isInteger(4.5);      // false
+isInteger(NaN);      // false
+```
+
+#### `isFloat(value)`
+Returns `true` if the value is a finite number that is not an integer.
+
+```javascript
+isFloat(4.5);      // true
+isFloat(4);        // false
+isFloat(Infinity); // false
+```
+
+#### `isPositive(value)`
+Returns `true` if the value is strictly greater than zero. `0`, `-0`, and `NaN` return `false`.
+
+```javascript
+isPositive(1);    // true
+isPositive(0);    // false
+isPositive(NaN);  // false
+```
+
+#### `isNegative(value)`
+Returns `true` if the value is strictly less than zero. `-0` returns `false`.
+
+```javascript
+isNegative(-1);  // true
+isNegative(0);   // false
+isNegative(-0);  // false — -0 < 0 is false in JavaScript
+```
+
+#### `isZero(value)`
+Returns `true` if the value is `0` or `-0`.
+
+```javascript
+isZero(0);   // true
+isZero(-0);  // true
+isZero(1);   // false
+```
+
+#### `isEven(value)`
+Returns `true` if the value is an even integer. Non-integers return `false`.
+
+```javascript
+isEven(4);    // true
+isEven(3);    // false
+isEven(2.5);  // false
+```
+
+#### `isOdd(value)`
+Returns `true` if the value is an odd integer. Non-integers return `false`.
+
+```javascript
+isOdd(3);    // true
+isOdd(4);    // false
+isOdd(3.1);  // false
+```
+
+#### `isInRange(value, min, max)`
+Returns `true` if the value is within `[min, max]`, inclusive on both bounds.
+
+```javascript
+isInRange(5, 1, 10);  // true
+isInRange(1, 1, 10);  // true  — inclusive
+isInRange(11, 1, 10); // false
+```
+
+#### `isDivisibleBy(value, divisor)`
+Returns `true` if `value` is an integer evenly divisible by `divisor`. Guards against division by zero and non-integer inputs.
+
+```javascript
+isDivisibleBy(9, 3);   // true
+isDivisibleBy(9, 0);   // false — division by zero guard
+isDivisibleBy(9.5, 3); // false — non-integer value
+```
+
+#### `isFiniteNumber(value)`
+Returns `true` if the value is a finite number. Returns `false` for `NaN`, `Infinity`, `-Infinity`, and non-numbers.
+
+```javascript
+isFiniteNumber(42);       // true
+isFiniteNumber(Infinity); // false
+isFiniteNumber(NaN);      // false
+```
+
+#### `isNaNValue(value)`
+Returns `true` if the value is exactly `NaN`. Uses `Number.isNaN` — does not coerce, so `isNaNValue(undefined)` returns `false`.
+
+```javascript
+isNaNValue(NaN);        // true
+isNaNValue(undefined);  // false — unlike global isNaN, no coercion
+isNaNValue(42);         // false
+```
+
 ### Comparison Functions
 
 #### `isEqual(a, b)`
