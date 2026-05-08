@@ -60,6 +60,12 @@ import {
   isFiniteNumber,
   isNaNValue,
 } from './utilities/number.js';
+import {
+  parseBoolean,
+  isBooleanable,
+  isTruthyString,
+  isFalseyString,
+} from './core/parsing.js';
 
 // Default export (combining all utilities)
 const Barbero = {
@@ -100,6 +106,10 @@ const Barbero = {
   isDivisibleBy,
   isFiniteNumber,
   isNaNValue,
+  parseBoolean,
+  isBooleanable,
+  isTruthyString,
+  isFalseyString,
 };
 
 // Named exports
@@ -141,6 +151,10 @@ export {
   isDivisibleBy,
   isFiniteNumber,
   isNaNValue,
+  parseBoolean,
+  isBooleanable,
+  isTruthyString,
+  isFalseyString,
 };
 
 // Default export

@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "declarationDir": "dist",
+        "checkJs": false,
+        "moduleResolution": "node",
+        "module": "es2020",
+        "target": "es2020",
+        "strict": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": [
+        "src/index.js"
+    ]
+}

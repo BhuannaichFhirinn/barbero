@@ -1,19 +1,21 @@
 {
     "name": "barbero",
-    "version": "1.1.0",
-    "description": "A lightweight utility library for Boolean logic.",
+    "version": "1.2.0",
+    "description": "A lightweight utility library for Boolean evaluations, semantic string parsing, comparisons, and predicate utilities.",
     "main": "dist/index.cjs",
     "module": "dist/index.mjs",
     "browser": "dist/index.umd.js",
+    "types": "dist/index.d.ts",
     "type": "module",
     "scripts": {
-        "build": "rollup -c",
+        "build": "rollup -c && tsc --project tsconfig.declarations.json",
         "test": "vitest",
         "test:watch": "vitest --watch",
         "prepublishOnly": "npm run build"
     },
     "keywords": [
         "boolean",
+        "parsing",
         "compare",
         "truthy",
         "falsey",
@@ -39,11 +41,13 @@
         "@rollup/plugin-node-resolve": "^16.0.0",
         "@rollup/plugin-terser": "^0.4.4",
         "rollup": "^4.29.1",
+        "typescript": "^5.9.3",
         "vitest": "^2.1.8"
     },
     "files": [
         "dist",
         "README.md",
+        "CHANGELOG.md",
         "LICENSE",
         "package.json"
     ]

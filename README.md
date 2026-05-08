@@ -1,6 +1,6 @@
 # Barbero
 
-**Barbero** is a lightweight JavaScript utility library providing tools for Boolean evaluations, comparisons, logical operations, and predicate utilities. Simplify your true/false logic with this modern, easy-to-use toolkit.
+**Barbero** is a lightweight JavaScript utility library providing tools for Boolean evaluations, semantic string parsing, comparisons, logical operations, and predicate utilities. Simplify your true/false logic with this modern, easy-to-use toolkit.
 
 ---
 
@@ -8,6 +8,8 @@
 
 - **Lightweight**: Small and efficient, designed to integrate seamlessly with your projects.
 - **Boolean Utilities**: Perform truthy/falsey checks, comparisons, validations, and predicate compositions.
+- **Semantic Parsing**: Recognise boolean meaning in strings and numbers — `'yes'`, `'enabled'`, `'on'`, `1`, and many more.
+- **TypeScript-ready**: Ships a full declaration file for first-class TypeScript support, generated from JSDoc annotations.
 - **Easy to Use**: Clear and intuitive functions for common tasks.
 - **Tree-shakable**: Import only what you need to minimize bundle size.
 
@@ -25,6 +27,45 @@ Or using Yarn:
 
 ```bash
 yarn add barbero
+```
+
+---
+
+## Getting Started
+
+Barbero ships three formats to suit any environment.
+
+### ES Modules (recommended)
+
+```javascript
+import { isTruthy, parseBoolean } from 'barbero';
+```
+
+Tree-shakable — only the functions you import are included in your bundle.
+
+### CommonJS (Node.js)
+
+```javascript
+const { isTruthy, parseBoolean } = require('barbero');
+```
+
+### Default import
+
+```javascript
+import Barbero from 'barbero';
+
+Barbero.isTruthy(1);       // true
+Barbero.parseBoolean('yes'); // true
+```
+
+### Browser (UMD via script tag)
+
+```html
+<script src="node_modules/barbero/dist/index.umd.js"></script>
+<script>
+  Barbero.isTruthy(1);        // true
+  Barbero.parseBoolean('yes'); // true
+</script>
 ```
 
 ---
@@ -357,6 +398,56 @@ Returns `true` if the value is exactly `NaN`. Uses `Number.isNaN` — does not c
 isNaNValue(NaN);        // true
 isNaNValue(undefined);  // false — unlike global isNaN, no coercion
 isNaNValue(42);         // false
+```
+
+### Boolean Parsing
+
+| Function | Description |
+|----------|-------------|
+| `parseBoolean(value)` | Returns `true` if the value is a recognised truthy representation (`'yes'`, `'true'`, `'on'`, `'1'`, `1`, etc.); `false` for everything else |
+| `isBooleanable(value)` | Returns `true` if the value is any recognised boolean representation — either truthy or falsy |
+| `isTruthyString(value)` | Returns `true` if the value is one of the recognised truthy semantic representations |
+| `isFalseyString(value)` | Returns `true` if the value is one of the recognised falsy semantic representations |
+
+#### `parseBoolean(value)`
+Returns `true` if the value is a recognised truthy semantic representation. Direct replacement for the deprecated `boolean()` function.
+
+```javascript
+parseBoolean('yes');      // true
+parseBoolean('enabled');  // true
+parseBoolean(1);          // true
+parseBoolean('no');       // false
+parseBoolean('maybe');    // false
+```
+
+#### `isBooleanable(value)`
+Returns `true` if the value is any recognised boolean representation — either truthy or falsy. Note that `'no'`, `'false'`, `'0'`, etc. are booleanable even though they represent false.
+
+```javascript
+isBooleanable('yes');    // true
+isBooleanable('no');     // true  — 'no' is booleanable even though it's falsy
+isBooleanable('maybe');  // false
+isBooleanable(null);     // false
+```
+
+#### `isTruthyString(value)`
+Returns `true` if the value is one of the recognised truthy semantic representations. Complements `isTruthy` for string/number input forms.
+
+```javascript
+isTruthyString('yes');      // true
+isTruthyString('enabled');  // true
+isTruthyString('no');       // false
+isTruthyString(1);          // true
+```
+
+#### `isFalseyString(value)`
+Returns `true` if the value is one of the recognised falsy semantic representations. Complements `isFalsey` for string/number input forms.
+
+```javascript
+isFalseyString('no');        // true
+isFalseyString('disabled');  // true
+isFalseyString('yes');       // false
+isFalseyString(0);           // true
 ```
 
 ### Comparison Functions
