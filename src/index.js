@@ -66,6 +66,18 @@ import {
   isTruthyString,
   isFalseyString,
 } from './core/parsing.js';
+import {
+  isNumericString,
+  isAlpha,
+  isAlphanumeric,
+  isUpperCase,
+  isLowerCase,
+  isPalindrome,
+  isBlankString,
+  stringStartsWith,
+  stringEndsWith,
+  stringIncludes,
+} from './utilities/string.js';
 
 // Default export (combining all utilities)
 const Barbero = {
@@ -110,6 +122,16 @@ const Barbero = {
   isBooleanable,
   isTruthyString,
   isFalseyString,
+  isNumericString,
+  isAlpha,
+  isAlphanumeric,
+  isUpperCase,
+  isLowerCase,
+  isPalindrome,
+  isBlankString,
+  stringStartsWith,
+  stringEndsWith,
+  stringIncludes,
 };
 
 // Named exports
@@ -155,6 +177,16 @@ export {
   isBooleanable,
   isTruthyString,
   isFalseyString,
+  isNumericString,
+  isAlpha,
+  isAlphanumeric,
+  isUpperCase,
+  isLowerCase,
+  isPalindrome,
+  isBlankString,
+  stringStartsWith,
+  stringEndsWith,
+  stringIncludes,
 };
 
 // Default export

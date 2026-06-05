@@ -31,6 +31,12 @@ yarn add barbero
 
 ---
 
+## Migrating from `boolean`?
+
+If you're migrating from the deprecated [`boolean`](https://www.npmjs.com/package/boolean) package, Barbero is a drop-in successor — same behaviour, same zero-dependency philosophy, plus ESM support and stricter TypeScript declarations. See the [migration guide](docs/migrating-from-boolean.md) for the full import change, function mapping, and behavioural comparison.
+
+---
+
 ## Getting Started
 
 Barbero ships three formats to suit any environment.
@@ -140,6 +146,8 @@ console.log(customCheck(3)); // false
 
 ### Core Functions
 
+→ [Full reference](docs/api/core.md)
+
 #### `isTruthy(value)`
 Returns `true` if the value is truthy.
 
@@ -157,6 +165,8 @@ isFalsey('hello'); // false
 ```
 
 ### Validation Functions
+
+→ [Full reference](docs/api/validation.md)
 
 #### `isNullOrUndefined(value)`
 Returns `true` if the value is `null` or `undefined`.
@@ -238,6 +248,8 @@ isRegExp('abc');  // false
 
 ### Type System Functions
 
+→ [Full reference](docs/api/types.md)
+
 #### `isNumber(value)`
 Returns `true` if the value has type `'number'` (including `NaN`).
 
@@ -300,6 +312,8 @@ isClassInstance([]);         // false
 ```
 
 ### Number / Math Functions
+
+→ [Full reference](docs/api/number.md)
 
 #### `isInteger(value)`
 Returns `true` if the value is an integer. Does not coerce — strings and floats return `false`.
@@ -402,6 +416,8 @@ isNaNValue(42);         // false
 
 ### Boolean Parsing
 
+→ [Full reference](docs/api/parsing.md)
+
 | Function | Description |
 |----------|-------------|
 | `parseBoolean(value)` | Returns `true` if the value is a recognised truthy representation (`'yes'`, `'true'`, `'on'`, `'1'`, `1`, etc.); `false` for everything else |
@@ -450,7 +466,122 @@ isFalseyString('yes');       // false
 isFalseyString(0);           // true
 ```
 
+### String Content Functions
+
+→ [Full reference](docs/api/string.md)
+
+| Function | Description |
+|----------|-------------|
+| `isNumericString(value)` | Returns `true` if the value is a non-empty string that converts to a valid number |
+| `isAlpha(value)` | Returns `true` if the string contains only ASCII letters |
+| `isAlphanumeric(value)` | Returns `true` if the string contains only ASCII letters and digits |
+| `isUpperCase(value)` | Returns `true` if the string is non-empty and all characters are upper case |
+| `isLowerCase(value)` | Returns `true` if the string is non-empty and all characters are lower case |
+| `isPalindrome(value)` | Returns `true` if the string reads the same forwards and backwards (case-sensitive) |
+| `isBlankString(value)` | Returns `true` if the string is empty or whitespace-only |
+| `stringStartsWith(value, prefix)` | Returns `true` if the string begins with the given prefix |
+| `stringEndsWith(value, suffix)` | Returns `true` if the string ends with the given suffix |
+| `stringIncludes(value, substring)` | Returns `true` if the string contains the given substring |
+
+#### `isNumericString(value)`
+Returns `true` if the value is a non-empty string that converts to a valid number.
+
+```javascript
+isNumericString('42');    // true
+isNumericString('3.14');  // true
+isNumericString('abc');   // false
+isNumericString('');      // false
+```
+
+#### `isAlpha(value)`
+Returns `true` if the string contains only ASCII letters (`a-z`, `A-Z`). Empty string returns `false`.
+
+```javascript
+isAlpha('hello');   // true
+isAlpha('hello1');  // false
+isAlpha('');        // false
+```
+
+#### `isAlphanumeric(value)`
+Returns `true` if the string contains only ASCII letters and digits. Empty string returns `false`.
+
+```javascript
+isAlphanumeric('hello1');  // true
+isAlphanumeric('hello!');  // false
+isAlphanumeric('');        // false
+```
+
+#### `isUpperCase(value)`
+Returns `true` if the string is non-empty and all characters are upper case. Strings with no alphabetical characters (e.g. `'123'`) return `true`.
+
+```javascript
+isUpperCase('HELLO');  // true
+isUpperCase('123');    // true  — no lower-case characters present
+isUpperCase('Hello');  // false
+isUpperCase('');       // false
+```
+
+#### `isLowerCase(value)`
+Returns `true` if the string is non-empty and all characters are lower case. Strings with no alphabetical characters (e.g. `'123'`) return `true`.
+
+```javascript
+isLowerCase('hello');  // true
+isLowerCase('123');    // true  — no upper-case characters present
+isLowerCase('Hello');  // false
+isLowerCase('');       // false
+```
+
+#### `isPalindrome(value)`
+Returns `true` if the string reads the same forwards and backwards. Comparison is case-sensitive. Empty string returns `true`.
+
+```javascript
+isPalindrome('racecar');  // true
+isPalindrome('');         // true  — empty string is vacuously a palindrome
+isPalindrome('Racecar');  // false — case-sensitive
+isPalindrome('hello');    // false
+```
+
+#### `isBlankString(value)`
+Returns `true` if the string is empty or contains only whitespace.
+
+```javascript
+isBlankString('');     // true
+isBlankString('   ');  // true
+isBlankString('hello'); // false
+```
+
+#### `stringStartsWith(value, prefix)`
+Returns `true` if the string begins with the given prefix. Both arguments must be strings.
+
+```javascript
+stringStartsWith('hello', 'hel');    // true
+stringStartsWith('hello', '');      // true  — empty prefix matches everything
+stringStartsWith('hello', 'world'); // false
+```
+
+#### `stringEndsWith(value, suffix)`
+Returns `true` if the string ends with the given suffix. Both arguments must be strings.
+
+```javascript
+stringEndsWith('hello', 'llo');    // true
+stringEndsWith('hello', '');      // true  — empty suffix matches everything
+stringEndsWith('hello', 'world'); // false
+```
+
+#### `stringIncludes(value, substring)`
+Returns `true` if the string contains the given substring. Both arguments must be strings.
+
+```javascript
+stringIncludes('hello', 'ell');  // true
+stringIncludes('hello', '');    // true  — empty substring matches everything
+stringIncludes('hello', 'xyz'); // false
+```
+
+---
+
 ### Comparison Functions
+
+→ [Full reference](docs/api/core.md)
 
 #### `isEqual(a, b)`
 Performs deep equality comparison between two values.
@@ -471,6 +602,8 @@ isStrictEqual(1, '1'); // false
 
 ### Logical Functions
 
+→ [Full reference](docs/api/logic.md)
+
 #### `xor(a, b)`
 Returns `true` if only one of the arguments is `true`.
 
@@ -488,6 +621,8 @@ nand(true, false); // true
 ```
 
 ### Predicate Utilities
+
+→ [Full reference](docs/api/predicates.md)
 
 #### `allPass(...predicates)`
 Returns a function that checks if all predicates pass for the given input.
@@ -529,9 +664,15 @@ console.log(customCheck(3)); // false
 
 ---
 
-## Contributing
+## Documentation
 
-Contributions are welcome! Please open an issue or submit a pull request on [GitHub](https://github.com/BhuannaichFhirinn/barbero).
+- [Overview](docs/overview.md) — quick start, module summary, installation
+- [Architecture](docs/architecture.md) — build system, module structure, design decisions
+- [API Reference](docs/api/) — full per-function documentation for every module
+- [Migrating from `boolean`](docs/migrating-from-boolean.md) — drop-in replacement guide for [`boolean`](https://www.npmjs.com/package/boolean) package users
+- [Contributing](docs/contributing.md) — adding functions, testing, publishing
+
+Contributions are welcome — please open an issue or submit a pull request on [GitHub](https://github.com/BhuannaichFhirinn/barbero).
 
 ---
 

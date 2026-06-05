@@ -37,5 +37,8 @@ tsconfig.tsbuildinfo
 # GitHub
 .github/copilot-instructions.md
 
-# Docs
-docs/
+# Claude
+CLAUDE.md
+
+# Private docs
+private-docs/
